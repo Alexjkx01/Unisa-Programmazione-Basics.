@@ -8,6 +8,15 @@ typedef struct{
   int matricola;
   float media_voto;
 } Studente;
+float calcolaMediaClasse( Studente* classe, int n)
+{
+float somma = 0.0f;
+for(int i=0; i<n; i++)
+  {
+  somma += classe[i].media_voto;
+  }
+return somma/n;
+}
 int main (){
   int n;
   FILE *file_output;
