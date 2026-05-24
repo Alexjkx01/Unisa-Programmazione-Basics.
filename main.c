@@ -17,6 +17,16 @@ for(int i=0; i<n; i++)
   }
 return somma/n;
 }
+int cercaStudente(Studente* classe, int n, const char* cognome) 
+{
+  for (int i=0; i<n; i++)
+  {
+  if (strcmp(classe[i].cognome, cognome) == 0)
+    { return i;}
+  }
+}
+return -1;
+}
 int main (){
   int n;
   FILE *file_output;
