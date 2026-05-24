@@ -22,10 +22,34 @@ int cercaStudente(Studente* classe, int n, const char* cognome)
   for (int i=0; i<n; i++)
   {
   if (strcmp(classe[i].cognome, cognome) == 0)
-    { return i;}
+    { 
+      return i;
+    }
   }
-
 return -1;
+}
+int leggiDaFile(const char* nomefile, Studente** classeOut) {
+  FILE* f = fopen(nomefile, "r");
+  if (f == NULL)
+  {
+  printf ("Errore di apertura '%s'. \n", nomefile);
+  return -1;
+  }
+int n=0;
+char linea[128];
+while (fgets(linea, sizeof(linea), f)) {
+  if (strncmp(linea, "Studente: ", 9) == 0) n++;
+}
+*classeOut = (Studente*)malloc(n*sizeof(Studente));
+rewind;
+int idx = 0;
+while (fgets(linea, sizeof(linea), f) && idx<n){
+sscanf(linea, "Studente: %19s %19s | Matricola %d | Media: %f",  (*classeOut)[idx].cognome, (*classeOut)[idx].nome,
+               &(*classeOut)[idx].matricola, &(*classeOut)[idx].media_voto);
+        idx++;
+    }
+    fclose(f);
+    return n;
 }
 int main (){
   int n;
