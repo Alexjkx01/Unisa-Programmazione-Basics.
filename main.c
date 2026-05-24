@@ -24,7 +24,7 @@ int cercaStudente(Studente* classe, int n, const char* cognome)
   if (strcmp(classe[i].cognome, cognome) == 0)
     { return i;}
   }
-}
+
 return -1;
 }
 int main (){
