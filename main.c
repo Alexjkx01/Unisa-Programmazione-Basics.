@@ -10,8 +10,8 @@ typedef struct{
 } Studente;
 int main (){
   int n;
-FILE *file_output;
-printf("=== UniSa - Gestione Record Studenti ===\n);
+  FILE *file_output;
+printf("=== UniSa - Gestione Record Studenti ===\n");
 printf("Inserisci il numero di studenti da registrare");
   if(scanf("%d", &n) !=1 || n <= 0)
   {
@@ -28,11 +28,11 @@ return 1;
 // Input dei dati da tastiera
 for (int i=0; i<n; i++)
 {
-  printf("\n--Student%d---\n", i++);
+  printf("\n--Studente %d---\n", i+1);
   printf("Cognome: ");
-  scanf("%s", classe[i].cognome);
+  scanf("%19s", classe[i].cognome);
   printf("Nome: ");
-  scanf("%s", classe[i].nome);
+  scanf("%19s", classe[i].nome);
   printf("Matricola: ");
   scanf("%d", &classe[i].matricola);
   printf("Media voto: ");
@@ -57,6 +57,6 @@ printf("\n=== Salvataggio dati... ===\n");
 // Liberiamo memoria
 fclose(file_output);
 free(classe);
-printf("\n Dati salvati con successo in 'report_studenti.txt'.\n);
+printf("\n Dati salvati con successo in 'report_studenti.txt'.\n");
   return 0;
   }
