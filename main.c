@@ -101,5 +101,15 @@ printf("\n=== Salvataggio dati... ===\n");
 fclose(file_output);
 free(classe);
 printf("\n Dati salvati con successo in 'report_studenti.txt'.\n");
+printf("\nMedia generale:%.2f\n, calcolaMediaClasse(classe, n));
+  printf("\nCercare uno studente? (1=Si / 0=No): ");
+  int cerca;
+scanf("%d", &cerca);
+  if ( cerca == 1) 
+  {
+    char cog[20];
+    printf("Cognome: " );
+    scanf("%19s", cog);
+    int idx
   return 0;
   }
